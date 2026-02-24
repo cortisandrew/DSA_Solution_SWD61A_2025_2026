@@ -29,9 +29,35 @@ else
 */
 
 int repetitions = 20;
-int[] problemSizes = new int[] { 10, 100, 1_000, 10_000, 100_000, 1_000_000 };
+int[] problemSizes = new int[] { 10, 100, 1_000, 10_000, 100_000, 1_000_000, 1_000_000_000 };
 
+Console.WriteLine("Testing Algorithm B (Binary Search):");
 List<int> guessesRequired;
+foreach (int size in problemSizes)
+{
+    guessesRequired = new List<int>();
+
+    for (int i = 0; i < repetitions; i++)
+    {
+        SecretNumber sn = new SecretNumber(0, size);
+        int g = AlgorithmB.Guess(sn);
+
+        if (g != sn.CheckSecretNumber)
+        {
+            throw new ApplicationException($"Algorithm failed to guess the secret number. Guessed: {g}, Actual: {sn.CheckSecretNumber}");
+        }
+
+        guessesRequired.Add(sn.NumGuesses);
+    }
+
+    Console.WriteLine($"Problem Size: {size}, Mean (Average) Num Guesses: {guessesRequired.Average()}");
+}
+
+Console.WriteLine();
+Console.WriteLine();
+Console.WriteLine();
+
+Console.WriteLine("\nTesting Algorithm A (Linear Search):");
 foreach (int size in problemSizes)
 {
     guessesRequired = new List<int>();

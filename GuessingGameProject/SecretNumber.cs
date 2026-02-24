@@ -14,6 +14,10 @@ namespace GuessingGameProject
 
         
         private readonly int _max;
+
+        /// <summary>
+        /// Max is exclusive, meaning the secret number will be less than max. For example, if max is 100, the secret number can be at most 99.
+        /// </summary>
         public int Max { get { return _max; } }
 
 
