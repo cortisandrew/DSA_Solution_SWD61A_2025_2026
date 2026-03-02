@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ref_Value_Types", "Ref_Valu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuessingGameProject", "GuessingGameProject\GuessingGameProject.csproj", "{0E6C6B63-9622-4FE2-B034-9635B7F73D4C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructuresImplementations", "DataStructuresImplementations\DataStructuresImplementations.csproj", "{4E31A236-960A-4DD1-AAE8-64C486A56B65}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0E6C6B63-9622-4FE2-B034-9635B7F73D4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E6C6B63-9622-4FE2-B034-9635B7F73D4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E6C6B63-9622-4FE2-B034-9635B7F73D4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E31A236-960A-4DD1-AAE8-64C486A56B65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E31A236-960A-4DD1-AAE8-64C486A56B65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E31A236-960A-4DD1-AAE8-64C486A56B65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E31A236-960A-4DD1-AAE8-64C486A56B65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
