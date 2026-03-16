@@ -2,33 +2,76 @@
 using DataStructuresImplementations;
 using System.Diagnostics;
 
-StackUsingABV<string> stackUsingABV = new StackUsingABV<string>();
+SinglyLinkedList<string> singlyLinkedList = new SinglyLinkedList<string>();
 
-stackUsingABV.Push("A");
-Console.WriteLine(stackUsingABV);
+if (singlyLinkedList.Count > 0)
+{
+    Console.WriteLine(
+        singlyLinkedList.RemoveFirst());
+}
 
+try
+{
+    singlyLinkedList.RemoveFirst();
+}
+catch (InvalidOperationException)
+{
+    Console.WriteLine("You have tried to remove an element from an empty list, which is invalid...");
+    // TODO: Log or Handle this exception!!!
+}
 
-stackUsingABV.Push("B");
-stackUsingABV.Push("C");
+singlyLinkedList.InsertFirst("C");
+singlyLinkedList.InsertFirst("B");
 
-Console.Clear();
-Console.WriteLine(stackUsingABV);
+Console.WriteLine(singlyLinkedList);
 
-Console.Clear();
+Console.WriteLine();
+Console.WriteLine("Insert first 'A'");
 
-Console.WriteLine("Popping the top of the stack:");
+singlyLinkedList.InsertFirst("A");
+Console.WriteLine(singlyLinkedList);
+
+singlyLinkedList.InsertFirst("S");
+Console.WriteLine(singlyLinkedList);
+
+Console.WriteLine("Remove First Element");
 Console.WriteLine(
-    stackUsingABV.Pop());
+    singlyLinkedList.RemoveFirst());
+Console.WriteLine(singlyLinkedList);
 
 
-Console.Clear();
-Console.WriteLine(stackUsingABV);
+// TestStackusingABV();
+
+static void TestStackusingABV()
+{
+    StackUsingABV<string> stackUsingABV = new StackUsingABV<string>();
+
+    stackUsingABV.Push("A");
+    Console.WriteLine(stackUsingABV);
 
 
-stackUsingABV.Push("D");
-stackUsingABV.Push("E");
+    stackUsingABV.Push("B");
+    stackUsingABV.Push("C");
 
-Console.WriteLine(stackUsingABV);
+    Console.Clear();
+    Console.WriteLine(stackUsingABV);
+
+    Console.Clear();
+
+    Console.WriteLine("Popping the top of the stack:");
+    Console.WriteLine(
+        stackUsingABV.Pop());
+
+
+    Console.Clear();
+    Console.WriteLine(stackUsingABV);
+
+
+    stackUsingABV.Push("D");
+    stackUsingABV.Push("E");
+
+    Console.WriteLine(stackUsingABV);
+}
 
 
 /*
