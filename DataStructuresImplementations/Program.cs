@@ -20,8 +20,9 @@ catch (InvalidOperationException)
     // TODO: Log or Handle this exception!!!
 }
 
+singlyLinkedList.InsertFirst("D");
 singlyLinkedList.InsertFirst("C");
-singlyLinkedList.InsertFirst("B");
+//singlyLinkedList.InsertFirst("B");
 
 Console.WriteLine(singlyLinkedList);
 
@@ -38,6 +39,12 @@ Console.WriteLine("Remove First Element");
 Console.WriteLine(
     singlyLinkedList.RemoveFirst());
 Console.WriteLine(singlyLinkedList);
+
+SinglyLinkedListNode<string>? __currentNode = singlyLinkedList.Head;
+
+singlyLinkedList.InsertAfter(__currentNode!, "B");
+Console.WriteLine(singlyLinkedList);
+
 
 
 // TestStackusingABV();

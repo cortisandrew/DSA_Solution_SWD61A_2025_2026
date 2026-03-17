@@ -66,11 +66,80 @@ namespace DataStructuresImplementations
             return currentNode.Next;
         }
 
-        public SinglyLinkedListNode<T>? Prev(SinglyLinkedListNode<T> currentNode)
+        public SinglyLinkedListNode<T> Prev(SinglyLinkedListNode<T> currentNode)
         {
+            // check whether currentNode exists
             ArgumentNullException.ThrowIfNull(nameof(currentNode), "You should not pass a null!");
 
-            throw new NotImplementedException();
+            // Step (i): Start from the very beginning
+            SinglyLinkedListNode<T>? cursor = Head;
+
+            // While our cursor is pointing towards an existing node
+            while (cursor != null)
+            {
+                // check whether the node at the cursor is the previous
+                if (cursor.Next == currentNode)
+                {
+                    // we have found the target!
+                    return cursor;
+                }
+
+                // no, this is NOT the target! (Prev)
+                // move forward one step
+                cursor = cursor.Next;
+            }
+
+            // The previous was NOT found
+            // cursor became null
+            throw new ArgumentException(nameof(currentNode), 
+                "The currentNode is not within the linked list!");
+        }
+
+        public void InsertAfter(SinglyLinkedListNode<T> currentNode, T element)
+        {
+            // Step (0)
+            // check whether currentNode exists
+            ArgumentNullException.ThrowIfNull(nameof(currentNode), "You should not pass a null!");
+
+            // Step (i)
+            // create the newNode with the new element
+            SinglyLinkedListNode<T> newNode 
+                = new SinglyLinkedListNode<T>(element);
+
+            // Step (ii)
+            // update the next reference of the newNode
+            newNode.Next = currentNode.Next;
+
+            // Step (iii)
+            // update the currentNode to point to the newNode
+            currentNode.Next = newNode;
+
+            // Step (iv)
+            Count++;
+        }
+
+        public void InsertBefore(SinglyLinkedListNode<T> currentNode, T element)
+        {
+            // Step (0)
+            // check whether currentNode exists
+            ArgumentNullException.ThrowIfNull(nameof(currentNode), "You should not pass a null!");
+
+            // Case (i):
+            // currentNode == Head
+            if (currentNode == Head)
+            {
+                // this means that we want to insert BEFORE the Head of list
+                // this is the InsertFirst
+                InsertFirst(element);
+                return;
+            }
+
+            // Case (ii):
+            // currentNode != Head
+            // There is at least ONE previous node (if the currentNode is really within the linked list)
+            SinglyLinkedListNode<T> prev = Prev(currentNode);
+            InsertAfter(prev, element); // this is equivalent to our InsertBefore
+            return;
         }
 
         public override string ToString()
