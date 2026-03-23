@@ -20,6 +20,12 @@ namespace DataStructuresImplementations
             private set;
         }
 
+        public SinglyLinkedListNode<T>? Tail
+        {
+            get;
+            private set;
+        }
+
         public void InsertFirst(T element)
         {
             // Step (i) - create a new node with the element to be stored
@@ -27,6 +33,13 @@ namespace DataStructuresImplementations
 
             // Step (ii) - update the next of the new node
             newNode.Next = Head;
+
+            // NewStep - update the tail if necessary
+            if (Head == null) // or Count == 0 or Tail == null
+            {
+                // We are adding the first element to the list
+                Tail = newNode;
+            }
 
             // Step (iii) - update the head to point towards the new node (which is added at the first position)
             Head = newNode;
@@ -47,6 +60,14 @@ namespace DataStructuresImplementations
 
             // Step (i) - Store the element that you wish to remove
             T returnValue = Head.Element;
+
+            // Extra Step:
+            // if we are removing the last element in the list
+            if (Head == Tail)
+            {
+                // We are also removing the tail (since only one element remains)
+                Tail = default;
+            }
 
             // Step (ii) - Move Head "one step forward"
             Head = Head.Next;
@@ -110,6 +131,12 @@ namespace DataStructuresImplementations
             // update the next reference of the newNode
             newNode.Next = currentNode.Next;
 
+            // Extra Step:
+            // If we are Inserting After the last node (i.e. the last node is the Tail of list)
+            if (currentNode == Tail) {
+                Tail = newNode; // The new tail is the new node
+            }
+
             // Step (iii)
             // update the currentNode to point to the newNode
             currentNode.Next = newNode;
@@ -142,6 +169,40 @@ namespace DataStructuresImplementations
             return;
         }
 
+        public T RemoveBefore(SinglyLinkedListNode<T> currentNode, T element)
+        {
+            // Step (0):
+            // validation...
+            // check whether currentNode exists
+            ArgumentNullException.ThrowIfNull(nameof(currentNode), "You should not pass a null!");
+
+            if (currentNode == Head)
+            {
+                throw new InvalidOperationException("The current node is the head of list and there is nothing to remove before this node");
+            }
+
+            SinglyLinkedListNode<T> PrevNode = Prev(currentNode);
+
+            // Case (i):
+            // The previous of the currentNode is the Head of list
+            // This is equivalent to the RemoveFirst
+            if (PrevNode == Head)
+            {
+                return RemoveFirst();
+            }
+
+            // Case (ii):
+            // We are in the middle of the list... you can call Prev of Prev without any issues
+            SinglyLinkedListNode<T> newReference = Prev(PrevNode);
+            return RemoveAfter(newReference);
+        }
+
+        public T RemoveAfter(SinglyLinkedListNode<T> newReference)
+        {
+            // TODO: Exercise!! - make sure to handle the Tail of list if the node removed happens to be the tail of list!
+            throw new NotImplementedException("This is an exercise");
+        }
+
         public override string ToString()
         {
             // I will use an ArrayBasedVector to store all the elements temporarily
@@ -170,6 +231,17 @@ namespace DataStructuresImplementations
             return string.Join(" -> ", elements);
         }
 
-
+        public void InsertLast(T element)
+        {
+            // if (Count > 0) {
+            if (Tail != null)
+            {
+                InsertAfter(Tail, element);
+            }
+            else // linked list is empty
+            {
+                InsertFirst(element);
+            }
+        }
     }
 }

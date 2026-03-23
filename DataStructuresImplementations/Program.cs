@@ -2,51 +2,25 @@
 using DataStructuresImplementations;
 using System.Diagnostics;
 
-SinglyLinkedList<string> singlyLinkedList = new SinglyLinkedList<string>();
+QueueUsingSinglyLinkedList<string> queue = new QueueUsingSinglyLinkedList<string>();
 
-if (singlyLinkedList.Count > 0)
+queue.Enqueue("A");
+queue.Enqueue("B");
+queue.Enqueue("C");
+
+Console.WriteLine(queue.Dequeue());
+
+queue.Enqueue("D");
+queue.Enqueue("E");
+
+while (queue.Count > 0)
 {
-    Console.WriteLine(
-        singlyLinkedList.RemoveFirst());
+    Console.WriteLine(queue.Dequeue());
 }
 
-try
-{
-    singlyLinkedList.RemoveFirst();
-}
-catch (InvalidOperationException)
-{
-    Console.WriteLine("You have tried to remove an element from an empty list, which is invalid...");
-    // TODO: Log or Handle this exception!!!
-}
-
-singlyLinkedList.InsertFirst("D");
-singlyLinkedList.InsertFirst("C");
-//singlyLinkedList.InsertFirst("B");
-
-Console.WriteLine(singlyLinkedList);
-
-Console.WriteLine();
-Console.WriteLine("Insert first 'A'");
-
-singlyLinkedList.InsertFirst("A");
-Console.WriteLine(singlyLinkedList);
-
-singlyLinkedList.InsertFirst("S");
-Console.WriteLine(singlyLinkedList);
-
-Console.WriteLine("Remove First Element");
-Console.WriteLine(
-    singlyLinkedList.RemoveFirst());
-Console.WriteLine(singlyLinkedList);
-
-SinglyLinkedListNode<string>? __currentNode = singlyLinkedList.Head;
-
-singlyLinkedList.InsertAfter(__currentNode!, "B");
-Console.WriteLine(singlyLinkedList);
 
 
-
+// TestSinglyLinkedList();
 // TestStackusingABV();
 
 static void TestStackusingABV()
@@ -78,6 +52,52 @@ static void TestStackusingABV()
     stackUsingABV.Push("E");
 
     Console.WriteLine(stackUsingABV);
+}
+
+static void TestSinglyLinkedList()
+{
+    SinglyLinkedList<string> singlyLinkedList = new SinglyLinkedList<string>();
+
+    if (singlyLinkedList.Count > 0)
+    {
+        Console.WriteLine(
+            singlyLinkedList.RemoveFirst());
+    }
+
+    try
+    {
+        singlyLinkedList.RemoveFirst();
+    }
+    catch (InvalidOperationException)
+    {
+        Console.WriteLine("You have tried to remove an element from an empty list, which is invalid...");
+        // TODO: Log or Handle this exception!!!
+    }
+
+    singlyLinkedList.InsertFirst("D");
+    singlyLinkedList.InsertFirst("C");
+    //singlyLinkedList.InsertFirst("B");
+
+    Console.WriteLine(singlyLinkedList);
+
+    Console.WriteLine();
+    Console.WriteLine("Insert first 'A'");
+
+    singlyLinkedList.InsertFirst("A");
+    Console.WriteLine(singlyLinkedList);
+
+    singlyLinkedList.InsertFirst("S");
+    Console.WriteLine(singlyLinkedList);
+
+    Console.WriteLine("Remove First Element");
+    Console.WriteLine(
+        singlyLinkedList.RemoveFirst());
+    Console.WriteLine(singlyLinkedList);
+
+    SinglyLinkedListNode<string>? __currentNode = singlyLinkedList.Head;
+
+    singlyLinkedList.InsertAfter(__currentNode!, "B");
+    Console.WriteLine(singlyLinkedList);
 }
 
 
