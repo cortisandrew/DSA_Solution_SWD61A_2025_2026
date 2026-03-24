@@ -197,7 +197,7 @@ namespace DataStructuresImplementations
             return RemoveAfter(newReference);
         }
 
-        public T RemoveAfter(SinglyLinkedListNode<T> newReference)
+        public T RemoveAfter(SinglyLinkedListNode<T> currentNode)
         {
             // TODO: Exercise!! - make sure to handle the Tail of list if the node removed happens to be the tail of list!
             throw new NotImplementedException("This is an exercise");
