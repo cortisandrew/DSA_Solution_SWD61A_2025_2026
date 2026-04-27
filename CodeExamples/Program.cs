@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 Console.WriteLine("Hello, World!");
 
-int n = 10;
+int n = 20;
 int t;
 
 Console.WriteLine(E(n));
