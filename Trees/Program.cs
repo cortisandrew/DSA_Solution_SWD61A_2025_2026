@@ -13,6 +13,7 @@ bst.Insert(4, "Data for 4");
 bst.Insert(6, "Data for 6");
 
 Console.WriteLine("Binary Search Tree created");
+Console.WriteLine(bst);
 
 Console.WriteLine(bst.Search(7));
 

@@ -58,5 +58,25 @@ namespace Trees
                 return Root.Search(key);
             }
         }
+
+        /// <summary>
+        /// Produces a string in DOT langauge that can be used to visualise your tree
+        /// Note that if you have nodes with duplicate keys, you will have an issue in the diagram
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+
+            stringBuilder.AppendLine("digraph {");
+            
+            if (Root != null)
+            {
+                stringBuilder.AppendLine(Root.ToString());
+            }
+
+            stringBuilder.AppendLine("}");
+            return stringBuilder.ToString();
+        }
     }
 }

@@ -114,4 +114,25 @@ public class Vertex<T>
     }
 
     #endregion
+
+    override public string ToString()
+    {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        stringBuilder.AppendLine($"V{Key};");
+
+        if (Left != null)
+        {
+            stringBuilder.AppendLine($"V{Key} -> V{Left.Key};");
+            stringBuilder.Append(Left.ToString());
+        }
+
+        if (Right != null)
+        {
+            stringBuilder.AppendLine($"V{Key} -> V{Right.Key};");
+            stringBuilder.Append(Right.ToString());
+        }
+
+        return stringBuilder.ToString();
+    }
 }
