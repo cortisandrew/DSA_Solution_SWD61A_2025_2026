@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeExamples", "CodeExample
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecursiveAlgorithms", "RecursiveAlgorithms\RecursiveAlgorithms.csproj", "{7FFC33A7-30CA-4347-A2F1-F3241A435291}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trees", "Trees\Trees.csproj", "{64C1DEEE-2BBB-4100-B3D0-2C7032AEF452}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{7FFC33A7-30CA-4347-A2F1-F3241A435291}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FFC33A7-30CA-4347-A2F1-F3241A435291}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FFC33A7-30CA-4347-A2F1-F3241A435291}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64C1DEEE-2BBB-4100-B3D0-2C7032AEF452}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64C1DEEE-2BBB-4100-B3D0-2C7032AEF452}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64C1DEEE-2BBB-4100-B3D0-2C7032AEF452}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64C1DEEE-2BBB-4100-B3D0-2C7032AEF452}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
