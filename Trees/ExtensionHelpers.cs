@@ -28,5 +28,29 @@ namespace Trees
             list[i] = list[j];
             list[j] = temp;
         }
+
+        public static List<int> HeapSort(this List<int> list)
+        {
+            BinaryMinHeap heap = new BinaryMinHeap();
+            List<int> sortedList = new List<int>(list.Count); // array size = n, so we don't have to worry about array growth when adding elements to the sorted list
+
+            // get all elements from your original list (xn)
+            foreach (int i in list)
+            {
+                // add each element to the heap O(log n)
+                heap.Add(i);
+            }
+
+            // n elements to remove (xn)
+            while (heap.Count > 0)
+            {
+                // O(log n) -- assuming no array growth
+                sortedList.Add(
+                    heap.RemoveMin()
+                );
+            }
+            // O(n log n) total time: ( 2 x c x n x log n)
+            return sortedList;
+        }
     }
 }

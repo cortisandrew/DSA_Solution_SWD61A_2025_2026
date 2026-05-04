@@ -9,7 +9,10 @@ namespace Trees
     public class BinaryMinHeap
     {
         List<int> _data = new List<int>();  // int has a sort-order, this will be our key
-    
+
+        // the number of elements is equal to the count of the list
+        public int Count => _data.Count;
+
         public void Add(int key)
         {
             // the new key is added. We have the complete property, BUT we need to maintain the min-heap-order property
