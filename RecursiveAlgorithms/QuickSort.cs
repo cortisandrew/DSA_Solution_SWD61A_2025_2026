@@ -12,13 +12,13 @@ namespace RecursiveAlgorithms
     {
         public void QS(int[] arrayToSort)
         {
-            QuickSort(arrayToSort, 0, arrayToSort.Length - 1);
+            QS(arrayToSort, 0, arrayToSort.Length - 1);
         }
 
-        private void QuickSort(int[] arrayToSort, int left, int right)
+        private void QS(int[] arrayToSort, int left, int right)
         {
             // Base Case
-            if (right - left <= 1)
+            if (right - left < 1) // BUG FIX! < 1 not <= 1!!
             {
                 // the sub-array has 0 or 1 elements, sub-array is already sorted, nothing to do
                 return;
